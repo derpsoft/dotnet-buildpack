@@ -99,6 +99,8 @@ fi
 echo "Installing the dependencies"
 apt_install libunwind8 gettext icu
 
+find ${BUILD_DIR}/dotnet -name '*.so' -type f -print | xargs ldd | grep 'not found'
+
 mkdir -p ${BUILD_DIR}/dotnet
 
 echo "Installing .NET CORE ${CORE_VERSION} from ${CORE_DOWNLOAD_LOCATION}"
